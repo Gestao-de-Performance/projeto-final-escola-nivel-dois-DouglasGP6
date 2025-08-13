@@ -1,14 +1,14 @@
-// ============= CÓDIGO ORIGINAL DO SEU PORTFOLIO =============
 
-// Menu Hambúrguer
+
+
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav-menu');
 const menuLinks = document.querySelectorAll("nav a");
 
-// Toggle do menu
+
 toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
-    // Animação do ícone
+    
     const icon = toggle.querySelector('i');
     if (nav.classList.contains('active')) {
         icon.classList.remove('fa-bars');
@@ -19,7 +19,7 @@ toggle.addEventListener('click', () => {
     }
 });
 
-// Fechar menu quando um link for clicado
+
 menuLinks.forEach(link => {
     link.addEventListener("click", () => {
         nav.classList.remove("active");
@@ -29,7 +29,7 @@ menuLinks.forEach(link => {
     });
 });
 
-// Fechar menu ao clicar fora dele
+
 document.addEventListener('click', (e) => {
     if (!nav.contains(e.target) && !toggle.contains(e.target)) {
         nav.classList.remove('active');
@@ -39,7 +39,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Botão voltar ao topo
+
 const backToTop = document.getElementById("backToTop");
 
 window.onscroll = function () {
@@ -54,7 +54,7 @@ backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Smooth scroll para os links do menu
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -68,7 +68,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Destacar link ativo baseado na seção visível
+
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
@@ -89,7 +89,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Animação de digitação (opcional)
+
 const typingText = document.querySelector('.typing-text span');
 const words = ['a Developer', 'a Student', 'Creative', 'Motivated'];
 let wordIndex = 0;
@@ -117,16 +117,16 @@ function typeWords() {
     setTimeout(typeWords, isDeleting ? 50 : 100);
 }
 
-// Iniciar animação de digitação
+
 typeWords();
 
-// ============= NOVO CÓDIGO PARA SKILLS ANIMADAS =============
 
-// Função para animar as barras de progresso das skills
+
+
 function animateSkillBars() {
     const skillCards = document.querySelectorAll('.skill-card');
     
-    // Adicionar barras de progresso para cada skill
+  
     const skillLevels = {
         'HTML5': 85,
         'CSS3': 80,
@@ -138,7 +138,7 @@ function animateSkillBars() {
         const skillName = card.querySelector('h3').textContent;
         const level = skillLevels[skillName] || 50;
         
-        // Criar barra de progresso se não existir
+        
         if (!card.querySelector('.skill-progress')) {
             const progressContainer = document.createElement('div');
             progressContainer.className = 'skill-progress';
@@ -153,7 +153,7 @@ function animateSkillBars() {
     });
 }
 
-// Função para animar quando a seção ficar visível
+
 function animateOnScroll() {
     const skillsSection = document.getElementById('skills');
     const progressBars = document.querySelectorAll('.progress-fill');
@@ -162,7 +162,7 @@ function animateOnScroll() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Animar barras de progresso
+                
                 progressBars.forEach((bar, index) => {
                     const level = parseInt(bar.dataset.level);
                     let currentLevel = 0;
@@ -179,7 +179,7 @@ function animateOnScroll() {
                     setTimeout(() => animateProgress(), index * 200);
                 });
                 
-                // Animar cards com efeito de entrada
+               
                 const skillCards = document.querySelectorAll('.skill-card');
                 skillCards.forEach((card, index) => {
                     setTimeout(() => {
@@ -194,19 +194,19 @@ function animateOnScroll() {
     observer.observe(skillsSection);
 }
 
-// Efeitos de hover interativos
+
 function addHoverEffects() {
     const skillCards = document.querySelectorAll('.skill-card');
     
     skillCards.forEach(card => {
-        // Efeito de rotação no ícone ao passar o mouse
+       
         const icon = card.querySelector('i');
         
         card.addEventListener('mouseenter', () => {
             icon.style.transform = 'rotate(360deg)';
             icon.style.transition = 'transform 0.6s ease';
             
-            // Efeito de pulse na barra de progresso
+           
             const progressFill = card.querySelector('.progress-fill');
             if (progressFill) {
                 progressFill.style.animation = 'pulse 0.6s ease';
@@ -219,7 +219,7 @@ function addHoverEffects() {
     });
 }
 
-// Função para adicionar partículas flutuantes (efeito visual extra)
+
 function addFloatingParticles() {
     const skillsSection = document.getElementById('skills');
     
@@ -244,7 +244,7 @@ function addFloatingParticles() {
     }
 }
 
-// CSS dinâmico para os efeitos
+
 function addDynamicStyles() {
     const style = document.createElement('style');
     style.textContent = `
@@ -322,9 +322,9 @@ function addDynamicStyles() {
     document.head.appendChild(style);
 }
 
-// Função de inicialização
+
 function initSkillsSection() {
-    // Aguardar o DOM carregar completamente
+   
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             addDynamicStyles();
