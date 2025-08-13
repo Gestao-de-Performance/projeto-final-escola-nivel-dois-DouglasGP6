@@ -650,7 +650,7 @@ footer {
     }
 }
 
-/* Efeito de brilho no hover */
+
 .skill-card:hover .progress-fill {
     animation: shimmer 1s ease-in-out;
 }
@@ -660,7 +660,7 @@ footer {
     100% { background-position: 100px 0; }
 }
 
-/* Posicionamento relativo para partículas */
+
 #skills {
     position: relative;
     overflow: hidden;
